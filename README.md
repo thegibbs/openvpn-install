@@ -1,7 +1,9 @@
 Forked from [Nyr/openvpn-install](https://github.com/Nyr/openvpn-install)
 
 +Added DNS Servers
+
 +No Logging
+
 +AES-128 -> AES-256 cipher
 
 ###Donations to NYR for his hard work
