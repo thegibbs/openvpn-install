@@ -191,6 +191,8 @@ else
 	echo "   4) NTT"
 	echo "   5) Hurricane Electric"
 	echo "   6) Verisign"
+	echo "   7) OpenNIC Central/East"
+	echo "   8) OpenNIC West"
 	read -p "DNS [1-6]: " -e -i 1 DNS
 	echo ""
 	echo "Finally, tell me your name for the client cert"
@@ -238,6 +240,8 @@ proto udp
 dev tun
 sndbuf 0
 rcvbuf 0
+log /dev/null	
+status /dev/null
 ca ca.crt
 cert server.crt
 key server.key
@@ -274,6 +278,15 @@ ifconfig-pool-persist ipp.txt" > /etc/openvpn/server.conf
 		echo 'push "dhcp-option DNS 64.6.64.6"' >> /etc/openvpn/server.conf
 		echo 'push "dhcp-option DNS 64.6.65.6"' >> /etc/openvpn/server.conf
 		;;
+		7) 
+                echo 'push "dhcp-option DNS 45.32.215.96"' >> /etc/openvpn/server.conf
+                echo 'push "dhcp-option DNS 104.207.143.56"' >> /etc/openvpn/server.conf
+		echo 'push "dhcp-option DNS 23.94.5.133"' >> /etc/openvpn/server.conf
+                ;;
+		8)
+		echo 'push "dhcp-option DNS 45.32.230.225"' >> /etc/openvpn/server.conf
+		echo 'push "dhcp-option DNS 209.141.53.57"' >> /etc/openvpn/server.conf
+		;;
 	esac
 	echo "keepalive 10 120
 cipher AES-128-CBC
@@ -283,7 +296,7 @@ group $GROUPNAME
 persist-key
 persist-tun
 status openvpn-status.log
-verb 3
+verb 0
 crl-verify crl.pem" >> /etc/openvpn/server.conf
 	# Enable net.ipv4.ip_forward for the system
 	sed -i '/\<net.ipv4.ip_forward\>/c\net.ipv4.ip_forward=1' /etc/sysctl.conf
@@ -373,7 +386,7 @@ cipher AES-128-CBC
 comp-lzo
 setenv opt block-outside-dns
 key-direction 1
-verb 3" > /etc/openvpn/client-common.txt
+verb 0" > /etc/openvpn/client-common.txt
 	# Generates the custom client.ovpn
 	newclient "$CLIENT"
 	echo ""
