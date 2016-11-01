@@ -6,4 +6,4 @@ Forked from [Nyr/openvpn-install](https://github.com/Nyr/openvpn-install)
 
 ###Donations to NYR for his hard work
 
-If you want to show your appreciation, you can donate via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBAYDL34Z7J6L) or [Bitcoin](https://www.coinbase.com/Nyr). Thanks!
+Donate via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBAYDL34Z7J6L) or [Bitcoin](https://www.coinbase.com/Nyr). Thanks!
